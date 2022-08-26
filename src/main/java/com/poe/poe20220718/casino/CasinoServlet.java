@@ -18,6 +18,9 @@ public class CasinoServlet extends HttpServlet {
         Random random = new Random();
         int nombreADeviner = random.nextInt(10)+1;
         
+        int tentativesRestantes = 3;
+        request.getSession().setAttribute("tentativesRestantes", tentativesRestantes);
+        
         request.getSession().setAttribute("nombreADeviner", nombreADeviner);
         
         request.getRequestDispatcher("WEB-INF/casino.jsp").forward(request, response);
@@ -30,7 +33,12 @@ public class CasinoServlet extends HttpServlet {
         int nombreJoueur = Integer.parseInt(nombreJoueurString);
          
         int nombreADeviner = (int)request.getSession().getAttribute("nombreADeviner");
-      
+        
+        int tentativesRestantes = (int)request.getSession().getAttribute("tentativesRestantes");
+        tentativesRestantes = tentativesRestantes - 1;
+        request.getSession().setAttribute("tentativesRestantes", tentativesRestantes);
+        
+        
         request.setAttribute("nombreJoueur", nombreJoueur);
         request.getRequestDispatcher("WEB-INF/casino.jsp").forward(request, response);
     }
