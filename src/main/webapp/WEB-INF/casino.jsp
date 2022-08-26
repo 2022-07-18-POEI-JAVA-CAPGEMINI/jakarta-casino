@@ -26,7 +26,7 @@
             <form action="casino" method="POST">
                 <br />
                 <label for="mot">Choissez un nombre pour jouer (min 1, max 10):</label>
-                <input type="text" name="nombreJoueur" id="nombreJoueur" />
+                <input type="number" name="nombreJoueur" id="nombreJoueur" required/>
                 <br />
                 <input type="submit" value="Jouer" />
         </form>
