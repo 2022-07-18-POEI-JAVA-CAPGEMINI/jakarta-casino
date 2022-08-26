@@ -9,6 +9,24 @@
     <body>
         <h1>Casino</h1>
         
-      
+        <p>Nombre à deviner: ${nombreADeviner} </p>
+        
+        <c:if test="${nombreADeviner == nombreJoueur}">
+            <p>Vous avez gagné !</p>
+        </c:if> 
+        <c:if test="${nombreADeviner > nombreJoueur}">
+            <p>Trop petit !</p>
+        </c:if>
+        <c:if test="${nombreADeviner < nombreJoueur}">
+            <p>Trop grand !</p>
+        </c:if> 
+        
+         <form action="casino" method="POST">
+            <br />
+            <label for="mot">Choissez un nombre pour jouer (min 1, max 10):</label>
+            <input type="text" name="nombreJoueur" id="nombreJoueur" />
+            <br />
+            <input type="submit" value="Jouer" />
+        </form>
     </body>
 </html>
