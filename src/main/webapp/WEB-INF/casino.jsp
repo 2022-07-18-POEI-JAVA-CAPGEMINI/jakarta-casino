@@ -13,6 +13,17 @@
         <p>Mise: ${mise}</p>
         
         <c:if test="${mise == null}">
+              <c:if test="${nombreADeviner == nombreJoueur}">
+                <p>Vous avez gagné !</p>        
+            </c:if>  
+            <c:if test="${nombreADeviner > nombreJoueur}">
+                <p>Trop petit !</p>
+            </c:if>
+            <c:if test="${nombreADeviner < nombreJoueur}">
+                <p>Trop grand !</p>
+            </c:if> 
+                
+                
             <p>Combien voulez-vous miser ?</p>
              <form action="casino" method="POST">
                     <label for="mise">Montant de la mise:</label>
@@ -20,6 +31,8 @@
                     <br />
                     <input type="submit" value="Miser" />
             </form>
+            
+           
         </c:if>
         
         <c:if test="${mise != null}">
