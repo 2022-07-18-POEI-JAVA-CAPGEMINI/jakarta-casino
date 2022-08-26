@@ -13,6 +13,7 @@
         
         <c:if test="${nombreADeviner == nombreJoueur}">
             <p>Vous avez gagné !</p>
+            <a href="casino">Nouvelle partie</a>
         </c:if> 
         <c:if test="${nombreADeviner > nombreJoueur}">
             <p>Trop petit !</p>
@@ -21,12 +22,15 @@
             <p>Trop grand !</p>
         </c:if> 
         
-         <form action="casino" method="POST">
-            <br />
-            <label for="mot">Choissez un nombre pour jouer (min 1, max 10):</label>
-            <input type="text" name="nombreJoueur" id="nombreJoueur" />
-            <br />
-            <input type="submit" value="Jouer" />
+        <c:if test="${nombreADeviner != nombreJoueur}">
+            <form action="casino" method="POST">
+                <br />
+                <label for="mot">Choissez un nombre pour jouer (min 1, max 10):</label>
+                <input type="text" name="nombreJoueur" id="nombreJoueur" />
+                <br />
+                <input type="submit" value="Jouer" />
         </form>
+        </c:if> 
+         
     </body>
 </html>
